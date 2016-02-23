@@ -11,17 +11,15 @@ module.exports = {
 
         this.log( 'keeping ' + keepnum );
 
-        var sorted = [ ];
-        messages.each( function( msg ) { sorted.push( msg ) } );
-        sorted.sort( function( a, b ) {
+        messages.sort( function( a, b ) {
             if ( a.internalDate < b.internalDate ) return -1;
             if ( a.internalDate > b.internalDate ) return 1;
             return 0;
         } );
 
-        this.log( 'after sorting', { 'list': sorted } );
+        this.log( 'after sorting', { 'list': messages } );
 
-        sorted = sorted.slice( keepnum );
+        messages = messages.slice( keepnum );
 
         this.log( 'after slice', { 'list': sorted } );
 
