@@ -7,7 +7,8 @@ var _ = require('lodash'),
 var unlabel_msg = function( app, service, user, msg_id, label ) {
     app.log( 'constructing promise for msg id ' + msg_id );
     var deferred = Q.defer();
-    service.users.messages.modify( { 'id': msg_id, 'userId': user, removeLabelIds: [ label ] }, function( err, message ) {
+    service.users.messages.modify( { 'id': msg_id, 'userId': user, 'resource': { 'removeLabelIds': [ label ] } },
+    function( err, message ) {
         if ( err ) { return deferred.reject( err );      }
         else       { return deferred.resolve( message ); }
     } );
