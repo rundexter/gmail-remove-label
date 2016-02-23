@@ -19,7 +19,7 @@ module.exports = {
 
         this.log( 'after sorting', { 'list': messages } );
 
-        messages = messages.slice( keepnum );
+        messages = messages.slice( 0, 0 - keepnum );
 
         this.log( 'after slice', { 'list': messages } );
 
