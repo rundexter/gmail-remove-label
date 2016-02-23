@@ -21,7 +21,7 @@ module.exports = {
 
         messages = messages.slice( keepnum );
 
-        this.log( 'after slice', { 'list': sorted } );
+        this.log( 'after slice', { 'list': messages } );
 
         return this.complete();
     }
