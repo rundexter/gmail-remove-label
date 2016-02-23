@@ -8,8 +8,16 @@
             "title":"List of messages"
         },
         {
+            "id": "label",
+            "title": "Label to remove"
+        },
+        {
             "id": "keepnum",
             "title": "Number of new messages to keep"
+        },
+        {
+            "id": "userId",
+            "title": "The user's email address"
         }
     ],
     "outputs": [
