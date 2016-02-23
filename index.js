@@ -6,8 +6,10 @@ module.exports = {
      * @param {AppData} dexter Container for all data used in this workflow.
      */
     run: function(step, dexter) {
-        var messages = step.input( 'messages' );
-        var keepnum  = step.input( 'keepnum' );
+        var messages = step.input( 'messages' ).first();
+        var keepnum  = step.input( 'keepnum' ).first();
+
+        this.log( 'keeping ' + keepnum );
 
         var sorted = [ ];
         messages.each( function( msg ) { sorted.push( msg ) } );
@@ -19,7 +21,7 @@ module.exports = {
 
         this.log( 'after sorting', { 'list': sorted } );
 
-        sorted = sorted.slice( 0, -keepnum );
+        sorted = sorted.slice( keepnum );
 
         this.log( 'after slice', { 'list': sorted } );
 
