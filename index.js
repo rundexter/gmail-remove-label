@@ -27,11 +27,6 @@ module.exports = {
         var OAuth2 = google.auth.OAuth2,
             oauth2Client = new OAuth2(),
             credentials = dexter.provider('google').credentials();
-        var inputs = util.pickInputs(step, pickInputs),
-            validateErrors = util.checkValidateErrors(inputs, pickInputs);
-
-        if (validateErrors)
-            return this.fail(validateErrors);
 
         // set credential
         oauth2Client.setCredentials({
