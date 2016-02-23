@@ -1,6 +1,7 @@
 var _ = require('lodash'),
     Q = require('q'),
     google = require('googleapis'),
+    util = require('./util.js'),
     service = google.gmail('v1');
 
 var unlabel_msg = function( app, service, user, msg_id, label ) {
