@@ -5,7 +5,6 @@ var _ = require('lodash'),
     service = google.gmail('v1');
 
 var unlabel_msg = function( app, service, user, msg_id, label ) {
-    app.log( 'constructing promise for msg id ' + msg_id );
     var deferred = Q.defer();
     service.users.messages.modify( { 'id': msg_id, 'userId': user, 'resource': { 'removeLabelIds': [ label ] } },
     function( err, message ) {
