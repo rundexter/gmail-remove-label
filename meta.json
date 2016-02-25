@@ -4,8 +4,12 @@
 {
     "inputs": [
         {
-            "id": "messages",
-            "title":"List of messages"
+            "id": "id",
+            "title":"The IDs of the messages to alter"
+        },
+        {
+            "id": "internalDate",
+            "title": "The date stamps of the messages to alter"
         },
         {
             "id": "label",

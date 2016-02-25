@@ -35,10 +35,13 @@ module.exports = {
         });
         google.options({ auth: oauth2Client });
 
-        var messages = step.input( 'messages' ).first();
+        var ids      = step.input( 'id' );
+        var dates    = step.input( 'internalDate' );
         var keepnum  = step.input( 'keepnum' ).first();
         var user     = step.input( 'userId' ).first();
         var label    = step.input( 'label' ).first();
+
+        messages = _.zipWith( ids, dates, function( id, date ) { return { id: id, internalDate: date } } );
 
         messages.sort( function( a, b ) {
             if ( a.internalDate < b.internalDate ) return -1;
@@ -55,7 +58,7 @@ module.exports = {
         })
 
         Q.all( removes )
-          .then( function( results ) { app.complete( { 'messages': results } ) } )
+          .then( function( results ) { app.complete(  ) } )
           .fail( function( err ) { app.fail( err ) } );
     }
 };
