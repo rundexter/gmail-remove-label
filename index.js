@@ -48,7 +48,7 @@ module.exports = {
             return 0;
         } );
 
-        messages = messages.slice( 0, 0 - keepnum );
+        if ( keepnum > 0 ) messages = messages.slice( 0, 0 - keepnum );
 
         var removes = [ ];
         var app = this;
